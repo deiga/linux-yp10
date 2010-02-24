@@ -1,0 +1,4 @@
+CentOS asennus eeepc 900 malliin.
+
+
+- Ensimmäiset hankaluudet, etsitään fiksut ohjeet miten asennus sujuu toho laitteeseen ja sitten tuleekin cryptisesti vastaan, että tee boottaava USB tikku sillä imagella. Distribuutiosta ei löydy mitään valmista imagea minkä voisi vain dd:ttää tikulle, vaan hieman monimutkaiset ohjeet, miten joko laitetaan 6. cd:n imaget tai yhden dvd:n imaget. Okei, sitten vaan laitailemaan.
