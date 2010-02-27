@@ -4,3 +4,9 @@ CentOS asennus eeepc 900 malliin.
 - Ensimmäiset hankaluudet, etsitään fiksut ohjeet miten asennus sujuu toho laitteeseen ja sitten tuleekin cryptisesti vastaan, että tee boottaava USB tikku sillä imagella. Distribuutiosta ei löydy mitään valmista imagea minkä voisi vain dd:ttää tikulle, vaan hieman monimutkaiset ohjeet, miten joko laitetaan 6. cd:n imaget tai yhden dvd:n imaget. Okei, sitten vaan laitailemaan.
 
 - Lisälukemisen jälkeen, selvisi, että tarvitsen tältä DVD-imagelta bootdisk.img tiedoston, jonka dd:tän usb tikulle, sen lisäksi sitten tarvitsen jonkun median jolla on tämä DVD-image että sitä voi käyttää. Erittäin huono asennusprosessi, joku CentOS:n tiimissä voisi oikeasti paketeoida usb-imagen valmiiksi, missä on kaikki tarvittavat asiat. alkaa mietityttään miksen vain kokeille dd:ttää koko DVD:n imagea, luulisi senkin kanssa toimivan suoraan.
+
+- Muutaman kerran yrittänyt saada asennusta käyntiin, ekalla kerralla kone ei buutannut. Ei siis riittänyt että bootdisk.img oli dd:tty yhdelle osiolle. Seuraava epäonnistui koska en onnistunut saamaan asennusta käyntiin sillä, että DVD-image oli toisella usb tikulla.
+
+- Netistä löytyi yksinkertaiset ohjeet kahden partition usb-tikulle, vieläkään ei saatu toimimaan.
+
+- Nyt koitan tyhjentää toisen sub tikun ja kopioida DVD-image uudestaan ja sit koittaa astentaa. Jos se ei toimi pitää lakaa miettimään vaihtoehtoja
