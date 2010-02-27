@@ -9,4 +9,18 @@ CentOS asennus eeepc 900 malliin.
 
 - Netistä löytyi yksinkertaiset ohjeet kahden partition usb-tikulle, vieläkään ei saatu toimimaan.
 
-- Nyt koitan tyhjentää toisen sub tikun ja kopioida DVD-image uudestaan ja sit koittaa astentaa. Jos se ei toimi pitää lakaa miettimään vaihtoehtoja
+- Nyt koitan tyhjentää toisen sub tikun ja kopioida DVD-image uudestaan ja sit koittaa astentaa. Jos se ei toimi pitää lakaa miettimään vaihtoehtoja. Onneksi toimi tällä setillä.
+
+- Asennuksen alkuvaiheet ovat ykisnkertaiset, kielen valinta, miltä medialta asennetaan, näppäin layout.
+
+- Asennusta varten levyjen valitseminen, valitaan levyjen kryptaus, tarkistetaan osiointi, boot partitiota ja LVM, jonka sisällä SWAP- ja EXT3-osio. Valitaan vielä ext3 osion kryptaus.
+
+- Asetetaan GRUB asennettavaksi, laitetaan GRUB asennettavaksi boot-partitiolle
+
+- Aikavyöhyke asetukset ja root-salasanat
+
+- Pakettejen läpikäynti on aika pitkä prosessi, mutta sai hyvin muokattua mitä tavaraa haluaa asennuksessa suoraan.
+
+- Jahas, asennettuna on defaulttina GRUB 0.97 joten piti hetken ihmetellä miten siitä pääsisi eteenpäin
+
+- Oletuksena asennus tahtoo aina laittaa kumpaakin USB-tikkua mukaan asennukseen.
