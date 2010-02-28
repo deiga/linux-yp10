@@ -27,4 +27,8 @@ CentOS asennus eeepc 900 malliin.
 Järjestelämn uudelleena sennus olikin ainut tapa saada se toimimaan, olin siis asentanut GRUB:in väärälle partitiolle :D
 Ja yritykset repair -> install new bootloader ei jostain syystä ottanut toimiakseen
 
+- Ensimmäinne bootti vaikuttaa hyvältä, käyttätiedot on asetettu ja nyt pääsee leikkimään käyttiksen kanssa.
+
+- Ennen kuin pääsee mitään päivityksiä asentamaan oli pakko ladata kernel modulit langattomalle ja langalliselle kortille. Nyt ehkä pääsee asentamaan päivityksiä.
+
 - Oletuksena asennus tahtoo aina laittaa kumpaakin USB-tikkua mukaan asennukseen.
