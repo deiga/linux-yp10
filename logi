@@ -21,6 +21,10 @@ CentOS asennus eeepc 900 malliin.
 
 - Pakettejen läpikäynti on aika pitkä prosessi, mutta sai hyvin muokattua mitä tavaraa haluaa asennuksessa suoraan.
 
-- Jahas, asennettuna on defaulttina GRUB 0.97 joten piti hetken ihmetellä miten siitä pääsisi eteenpäin
+- Jahas, asennettuna on defaulttina GRUB 0.97 joten piti hetken ihmetellä miten siitä pääsisi eteenpäin.
+
+- Näköjään asennuksessa tapahtui jokin virhe, suoritan asennuksen uudestaan.
+Järjestelämn uudelleena sennus olikin ainut tapa saada se toimimaan, olin siis asentanut GRUB:in väärälle partitiolle :D
+Ja yritykset repair -> install new bootloader ei jostain syystä ottanut toimiakseen
 
 - Oletuksena asennus tahtoo aina laittaa kumpaakin USB-tikkua mukaan asennukseen.
