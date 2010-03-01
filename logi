@@ -31,4 +31,8 @@ Ja yritykset repair -> install new bootloader ei jostain syystä ottanut toimiak
 
 - Ennen kuin pääsee mitään päivityksiä asentamaan oli pakko ladata kernel modulit langattomalle ja langalliselle kortille. Nyt ehkä pääsee asentamaan päivityksiä.
 
+- Noin, kone jopa saa automaattisesti ip:n sun muut kilkkeet ethernetin yli, loistavaa. Päivityksien asennus alkaa nyt. WLAN ei vielä oikein toimi, katsotaan lisää kunhan saan wpa-supplicantin asennettua.
+
+- Asennettavia päivityksiä onkin aika paljon, pakettimanageri ei tarjoa lukumäärää. Asennuksen jälkeen pyydettiin reboottia, asennuksessa ei ilmennyt mitään ongelmia ja kaikki päivitykset asennettiin kerralla. Lukumäärästä ei edelleenkään tietoa.
+
 - Oletuksena asennus tahtoo aina laittaa kumpaakin USB-tikkua mukaan asennukseen.
