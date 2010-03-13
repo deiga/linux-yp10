@@ -35,4 +35,6 @@ Ja yritykset repair -> install new bootloader ei jostain syystä ottanut toimiak
 
 - Asennettavia päivityksiä onkin aika paljon, pakettimanageri ei tarjoa lukumäärää. Asennuksen jälkeen pyydettiin reboottia, asennuksessa ei ilmennyt mitään ongelmia ja kaikki päivitykset asennettiin kerralla. Lukumäärästä ei edelleenkään tietoa.
 
+- Laitoin sitten koneen kannen kiinni ja annoin olla muutaman päivän, selkesti taiis mennä hibernateen tai vastaavaan, kone oli kauttaaltaan ihan kuuma, ihan kuin ei osaisi sulkea toimintoja ja ei enää herännyt kun sitä yritti herätellä.
+
 - Oletuksena asennus tahtoo aina laittaa kumpaakin USB-tikkua mukaan asennukseen.
