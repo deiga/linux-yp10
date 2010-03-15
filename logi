@@ -1,40 +1,60 @@
-CentOS asennus eeepc 900 malliin.
 
 
-- Ensimmäiset hankaluudet, etsitään fiksut ohjeet miten asennus sujuu toho laitteeseen ja sitten tuleekin cryptisesti vastaan, että tee boottaava USB tikku sillä imagella. Distribuutiosta ei löydy mitään valmista imagea minkä voisi vain dd:ttää tikulle, vaan hieman monimutkaiset ohjeet, miten joko laitetaan 6. cd:n imaget tai yhden dvd:n imaget. Okei, sitten vaan laitailemaan.
+a) Asennetaan CentOS 5.4 Asus eeepc 900 -malliin
 
-- Lisälukemisen jälkeen, selvisi, että tarvitsen tältä DVD-imagelta bootdisk.img tiedoston, jonka dd:tän usb tikulle, sen lisäksi sitten tarvitsen jonkun median jolla on tämä DVD-image että sitä voi käyttää. Erittäin huono asennusprosessi, joku CentOS:n tiimissä voisi oikeasti paketeoida usb-imagen valmiiksi, missä on kaikki tarvittavat asiat. alkaa mietityttään miksen vain kokeille dd:ttää koko DVD:n imagea, luulisi senkin kanssa toimivan suoraan.
+Ensimmäiset vaikeudet alkaa siitä, kun distribuutiosta ei löydy järkevää imagea usb-tikkuja varten. Kun olin jonkin aikaa kuluttanut siihen, että yritin dd:ttää dvd:n imagea usb-tikulle löysin lisää materiaalia mikä kertoi, että dvd:ltä pitää ottaa bootdisk.img tiedosto ja tämä tulee dd:ttää. 
+Noh, toimeen vaan ja sillähän se sit alkaakin toimia. Olisi vaan kiva jos joku CentOS-porukasta voisi tehdä valmiiksi paketoidun imagen usb:tä varten.
+Tarkemman testailun jälkeen tuli ongelmia vastaan. Olin jakanut usb tikkuni kahteen partitioon, jolle toiselle dd:tin kyseisen imagen ja toiselle itse asennusmedian. Harmikseni tikku ei suostunut boottamaan näin vaikka levy oli astettu boottaavaksi.
+Ratkaisuksi tuli sitten käyttää kahta usb-tikkua.
 
-- Muutaman kerran yrittänyt saada asennusta käyntiin, ekalla kerralla kone ei buutannut. Ei siis riittänyt että bootdisk.img oli dd:tty yhdelle osiolle. Seuraava epäonnistui koska en onnistunut saamaan asennusta käyntiin sillä, että DVD-image oli toisella usb tikulla.
+Asennus itsessän hyvin yksinkertainen, vähän kliksutellaan että mitä halutaan päälle ja mitä ei. Valitaan kielet ja näppäinlayoutit oikein. Pistetään LVM ja itse LYPHome levy kumamtkin kryptattavaksi (Tämä oli virhe, kun ei tullut selväksi että ne kryptaavat erikseen.)
+Levy osioitiin boot ja LVM levyiksi, LVM:n sisällä swap ja ext3 partitiot. GRUB:in valintojen jälkeen katsotaan paketitt läpi, jätetään turhat heti alkuun pois.
 
-- Netistä löytyi yksinkertaiset ohjeet kahden partition usb-tikulle, vieläkään ei saatu toimimaan.
+Järjestelmän bootti ja ruudulle hyppää GRUB 0.97, jokin ei nyt mene oikein. Selvisi, että asennuksessa tapahtui virhe, asentaja oli päättänyt, että usb-tikku jolla levyimage oli on "ensimmäinen" levy, eikä siksi asentanut grubia kiintolevyn MBR:lle.
+Seuraavaksi koitin ihan "repair install" -toimintoa, mutta se ei osannut muuttaa pelkkää bootloaderia joten jouduin suorittamaan asennuksen uudestaan.
 
-- Nyt koitan tyhjentää toisen sub tikun ja kopioida DVD-image uudestaan ja sit koittaa astentaa. Jos se ei toimi pitää lakaa miettimään vaihtoehtoja. Onneksi toimi tällä setillä.
+Tälläkertaa kaikki toimii kunnolla, kirjautumisen jälkeen käynkin hakemassa ajurit langattomalle ja langalliselle verkkokortille toisella koneella. Ethernet alkaa toimimaan ajureitten myötä, mutta Atheroksen langaton kortti ei suostu yhteistyöhön.
 
-- Asennuksen alkuvaiheet ovat ykisnkertaiset, kielen valinta, miltä medialta asennetaan, näppäin layout.
+Asennettavia päivityksiä on tosi paljon, virheellisesti tein päivityksen gui:lla, jolloin en päässyt näkemään pakettejen määrää.
 
-- Asennusta varten levyjen valitseminen, valitaan levyjen kryptaus, tarkistetaan osiointi, boot partitiota ja LVM, jonka sisällä SWAP- ja EXT3-osio. Valitaan vielä ext3 osion kryptaus.
 
-- Asetetaan GRUB asennettavaksi, laitetaan GRUB asennettavaksi boot-partitiolle
+b)
+Seuraavat palvelindemonit ovat käynnissä runelevel viitosella:
+	acpid, anacron, apmd, atd, auditd, autofs, avahi-daemon, bluetooth, cpuspeed, crond, cups, firstboot, gpm, haldaemon, hidd, 
+	hplip, iptables, irqtables, isdn, kdump, kudzu, lm_sensors, lvm2-monitor
 
-- Aikavyöhyke asetukset ja root-salasanat
+Pyydettyjen moduulejejn listaus, kyseessä kernelin moduulit jotka haettu lsmodilla
+	- Näytönohjain: i915
+	- Äänikortti: snd_hda_intel, snd_hda_codec_realtek, snd_hda_codec, snd_hwdep, snd_seq_dummy, snd_seq_oss, snd_seq_midi_event
+		snd_seq, snd_seq_device, snd_pcm_oss, snd_mixer_oss, snd_pcm, snd_timer, snd, soundcore, snd_page_alloc
+	- Langaton: wlan_scan_sta, wlan, ath_pci, ath_rate_sample, ath_hal
+	- Langallinen: atl2
+	- Levyohjain: scsi_dh, ata_piix, scsi_mod, libata
+	
+Mielenkiintoista, että ääni tarvitsee noin paljon ajureita, kun videontoisto pärjää yhdellä
 
-- Pakettejen läpikäynti on aika pitkä prosessi, mutta sai hyvin muokattua mitä tavaraa haluaa asennuksessa suoraan.
+c)
+Aluksi ei meinannut löytyä tietä prosessorin kellotaajuuden säätämisestä, mutta dmidecodesta huomasin, että prosessori pyöri 630mhz nopeudella, kun maksimi oli 900. Eli selkeästi se on käytössä. Mitään ei tarvinnut asentaa, tarvitsi vain asettaa KLaptop:ssa täppä, että prosessorin nopeuttaa saa muokata. Muokkaamisen pystyi tekemään myös cpuspeed ohjelman avulla komentoriviltä.
 
-- Jahas, asennettuna on defaulttina GRUB 0.97 joten piti hetken ihmetellä miten siitä pääsisi eteenpäin.
+Luultavasti järjestelmä osaa laskea virrankulutuksen, mutta kun akun kanssa on häiriöitä tällä hetkellä (Kuulemma Asuksen firmwaressa on bugi, että akun latausprosentti ja latausmäärä vaihtavat paikkaa), niin en pystynyt varmistamaan asiaa, ennekuin kone sammutti itsensä.
 
-- Näköjään asennuksessa tapahtui jokin virhe, suoritan asennuksen uudestaan.
-Järjestelämn uudelleena sennus olikin ainut tapa saada se toimimaan, olin siis asentanut GRUB:in väärälle partitiolle :D
-Ja yritykset repair -> install new bootloader ei jostain syystä ottanut toimiakseen
+Suspend ja hibernate toimivat suoraan ilman minkäänlaista säätöä, olen aika yllättynyt.
 
-- Ensimmäinne bootti vaikuttaa hyvältä, käyttätiedot on asetettu ja nyt pääsee leikkimään käyttiksen kanssa.
+d)
+Koneessa on yksi fyysinen levy joka on jaettu kahteen partitioon, toinen boot ja toinen LVM.
+LVM:n sisällä on swap- ja ext3- partitio. LVMGroup ja LVMHome ovat kummatkin erikseen LUKS cryptattuja, kryptaukseen käytettiin dm-crypt/LUKS:ia
+Loopbackista en osaa mitään sanoa. Kyseessä virtuaalinen laite joka mahdollistaa esim. levy-imagejen mounttaamisen
 
-- Ennen kuin pääsee mitään päivityksiä asentamaan oli pakko ladata kernel modulit langattomalle ja langalliselle kortille. Nyt ehkä pääsee asentamaan päivityksiä.
+e)
+Neverball toimii ilman graafisia ongelmia. Asennusta varten piti tosin lisätä uusi repository käyttöön, että sai oikeat kijrastot.
+glxgears antoi luvuksi 650 FPS.
+Noatum oli järjestelmnä oletusvideontoistoohjelma, mutta tämä ei osannut .mov tiedostoja avata. Tämän asian ohjelma kummiskin jätti kertomatta ja ihmettelin pitkän tovin miksei toimi ja miten korjata.
+Asenettu mplayer paketti ja sillä toimii moitteettomasti.
+	1080p videossa paljon nykimistä, jossain vaiheessa videokuvao n niin hidasta että ääni menee useita kymmenia sekuntteja edellä.
+	Toisto tuottaa myös virhesanoman "Too many video packets in the buffer"
+	720p ja 480p tarkkuudella ei olut mitään ongelmia videokuvan kanssa
 
-- Noin, kone jopa saa automaattisesti ip:n sun muut kilkkeet ethernetin yli, loistavaa. Päivityksien asennus alkaa nyt. WLAN ei vielä oikein toimi, katsotaan lisää kunhan saan wpa-supplicantin asennettua.
+f) Koneeseen lisätty testuser salasanalla test ja omalla /home/testuser -kansiolla. Quotaa en saanut enabloitua
 
-- Asennettavia päivityksiä onkin aika paljon, pakettimanageri ei tarjoa lukumäärää. Asennuksen jälkeen pyydettiin reboottia, asennuksessa ei ilmennyt mitään ongelmia ja kaikki päivitykset asennettiin kerralla. Lukumäärästä ei edelleenkään tietoa.
-
-- Laitoin sitten koneen kannen kiinni ja annoin olla muutaman päivän, selkesti taiis mennä hibernateen tai vastaavaan, kone oli kauttaaltaan ihan kuuma, ihan kuin ei osaisi sulkea toimintoja ja ei enää herännyt kun sitä yritti herätellä.
-
-- Oletuksena asennus tahtoo aina laittaa kumpaakin USB-tikkua mukaan asennukseen.
+g) Levyn purkuun ja mounttaukseen ei mennyt pitkää aikaa. Mountattu loopback-levyn avulla. Mitään ei tarvinnut asentaa toimintaa varten. Korjattu tiedostojärjestelmä fsck:lla
+	
