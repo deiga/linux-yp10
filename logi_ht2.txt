@@ -29,7 +29,7 @@ Palvelimelle asennetaan CGI-skripti, joka toimii käyttäjän oikeuksin WWW-serv
 	"sudo yum insall http php mod_perl mod_python mod_ssl"
 
 2. SSL/TLS tuen käyttöönotto Apachessa
-
+	Ei tarvinnut tehdä mitään.
 3. Sertifikaatin generointi. Sertifikaatti allekirjoitetaan Linux-ylläpito kurssin virallisella CA:lla osoitteessa http://db.cs.helsinki.fi/~jjaakkol/linux-yp/
 	Sertifikaation oikean muodon keksiminen vaati aluksi hieman aikaa, koska oletin, että allekirjoittaja tahtoisn jonkun tietyn muodon.
 
@@ -75,3 +75,5 @@ Palvelimelle asennetaan CGI-skripti, joka toimii käyttäjän oikeuksin WWW-serv
 	pg_hba.conf tiedostossa piti kaikkien rivien autentikointi muuttaa trsutiksi, jotta yhteys tietokantaan oli mahdollista.
 
 9. Palvelimelle asennetaan CGI-skripti, joka toimii käyttäjän oikeuksin WWW-serverin oikeuksien sijasta. Asennettu CGI-skripti pitää myös olla suojattu SSL-kryptauksella!.
+	Asennettu esimerkki skripti cgi-bin kansioon
+	Määritelty Directory-asetus "SSLRequireSSL", jotta cgi-skriptejä ei pääse ajamaan ilman SSL/TLS yhteyttä.
