@@ -1,0 +1,54 @@
+####Harjoitustyö 2: WWW-palvelimen asennus ja konfigurointi
+
+#
+### Tehtävänanto
+#
+
+http://www.cs.helsinki.fi/u/jjaakkol/lyp2010/ht2.shtml
+
+Tehtävänä on asentaa ja konfiguroida nimipohjainen VirtualHost Apache WWW-palvelimeen. Asennuksen pitää tukea SSL-kryptausta siten, että käytetyllä SSL-sertifikaatilla on sama nimi kuin konfiguroidulla VirtualHostilla. Palvelimella suoritetaan PHP-skriptejä ja suojatun yhteyden takaa myös CGI-skriptejä. Valmiiksi asennetulla palvelimella pitää olla yksi PHP-skripti, joka hakee tietoja samalla palvelimella sijaitsevasta tietokannasta ja CGI-skripti, joka suoritetaan tavallisen käyttäjän oikeuksin, mutta vain SSL-kryptatun yhteyden yli.
+
+Harjoitustyön vaiheet siis ovat:
+
+Apachen asennus
+SSL/TLS tuen käyttöönotto Apachessa
+Sertifikaatin generointi. Sertifikaatti allekirjoitetaan Linux-ylläpito kurssin virallisella CA:lla osoitteessa http://db.cs.helsinki.fi/~jjaakkol/linux-yp/
+Apachen PHP-tuen asentaminen ja konfigurointi
+Tietokannan asennus: Postgres tai MySQL
+Alustetaan tyhjä tietokanta ja lisätään tietokantaan käyttäjätunnus ja tunnukseen liittyvä salasana.
+Luodaan tietokantaan tietokantaan ainakin yksi taulu (katso esimerkki)
+Asennetaan PHP-skripti, joka ottaa yhteyden tietokantaan ja tekee yksinkertaisen tietokantakyselyn (katso esimerkki) ja muotoilee kyselyn tuloksen HTML-muotoon.
+Palvelimelle asennetaan CGI-skripti, joka toimii käyttäjän oikeuksin WWW-serverin oikeuksien sijasta. Asennettu CGI-skripti pitää myös olla suojattu SSL-kryptauksella!.
+
+#
+### Oppimispäiväkirja
+#
+
+1. Apachen asennus
+	Apachen asennus sujui ongelmitta
+	"sudo yum insall http php mod_perl mod_python mod_ssl"
+
+2. SSL/TLS tuen käyttöönotto Apachessa
+3. Sertifikaatin generointi. Sertifikaatti allekirjoitetaan Linux-ylläpito kurssin virallisella CA:lla osoitteessa http://db.cs.helsinki.fi/~jjaakkol/linux-yp/
+4. Apachen PHP-tuen asentaminen ja konfigurointi
+5. Tietokannan asennus: Postgres tai MySQL
+	PostgreSQL asennettu
+	"sudo yum install postresql postgresql-server php-pgsql"
+	"/sbin/chkconfig postgresql on"
+  	"/sbin/service postgresql start"
+
+
+
+6. Alustetaan tyhjä tietokanta ja lisätään tietokantaan käyttäjätunnus ja tunnukseen liittyvä salasana.
+	"sudo su - postgres" ("su - postgres" ei jostain syystä ottanut salasanaa vastaan)
+	"psql template1"
+	Luotiin psql käyttäjä ja tietokanta (web_user, web_database)
+	Testattiin että tietokanta toimii "psql -U web_user web_database"
+7. Luodaan tietokantaan tietokantaan ainakin yksi taulu (katso esimerkki)
+	Luotiin esimerkin mukainen tietokantataulu:
+	"create table movies (name varchar, year integer);"
+  	"insert into movies values ('Holy Grail', 1975);"
+  	"insert into movies values ('Life of Brian', 1979);"
+  	"insert into movies values ('The Meaning of Life', 1983);"
+8. Asennetaan PHP-skripti, joka ottaa yhteyden tietokantaan ja tekee yksinkertaisen tietokantakyselyn (katso esimerkki) ja muotoilee kyselyn tuloksen HTML-muotoon.
+9. Palvelimelle asennetaan CGI-skripti, joka toimii käyttäjän oikeuksin WWW-serverin oikeuksien sijasta. Asennettu CGI-skripti pitää myös olla suojattu SSL-kryptauksella!.
