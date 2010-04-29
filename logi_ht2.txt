@@ -24,6 +24,7 @@ Palvelimelle asennetaan CGI-skripti, joka toimii käyttäjän oikeuksin WWW-serv
 ### Oppimispäiväkirja
 #
 
+IP: 103.178.59.113
 1. Apachen asennus
 	Apachen asennus sujui ongelmitta
 	"sudo yum insall http php mod_perl mod_python mod_ssl"
@@ -31,6 +32,19 @@ Palvelimelle asennetaan CGI-skripti, joka toimii käyttäjän oikeuksin WWW-serv
 2. SSL/TLS tuen käyttöönotto Apachessa
 3. Sertifikaatin generointi. Sertifikaatti allekirjoitetaan Linux-ylläpito kurssin virallisella CA:lla osoitteessa http://db.cs.helsinki.fi/~jjaakkol/linux-yp/
 4. Apachen PHP-tuen asentaminen ja konfigurointi
+	Lisätty httpd.conf -tiedostoon seuraavaa:
+	"# Use for PHP 5.x:
+	AddHandler php5-script php
+
+	# Add index.php to your DirectoryIndex line:
+	DirectoryIndex index.html index.php
+
+	AddType text/html       php
+
+	# PHP Syntax Coloring
+	# (optional but useful for reading PHP source for debugging):
+	AddType application/x-httpd-php-source phps"
+
 5. Tietokannan asennus: Postgres tai MySQL
 	PostgreSQL asennettu
 	"sudo yum install postresql postgresql-server php-pgsql"
@@ -53,6 +67,7 @@ Palvelimelle asennetaan CGI-skripti, joka toimii käyttäjän oikeuksin WWW-serv
   	"insert into movies values ('The Meaning of Life', 1983);"
 
 8. Asennetaan PHP-skripti, joka ottaa yhteyden tietokantaan ja tekee yksinkertaisen tietokantakyselyn (katso esimerkki) ja muotoilee kyselyn tuloksen HTML-muotoon.
-	Kopioitu esimerkki-skripti sivuilta ja muutettu parametrit oikeiksi omalle palvelimelle
+	Kopioitu esimerkki-skripti sivuilta ja muutettu parametrit oikeiksi omalle palvelimelle.
+
 
 9. Palvelimelle asennetaan CGI-skripti, joka toimii käyttäjän oikeuksin WWW-serverin oikeuksien sijasta. Asennettu CGI-skripti pitää myös olla suojattu SSL-kryptauksella!.
