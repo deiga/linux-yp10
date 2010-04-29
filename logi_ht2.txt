@@ -80,5 +80,7 @@ Palvelimelle asennetaan CGI-skripti, joka toimii käyttäjän oikeuksin WWW-serv
 	Määritelty Directory-asetus "SSLRequireSSL", jotta cgi-skriptejä ei pääse ajamaan ilman SSL/TLS yhteyttä.
 	Ainut keino minkä löysin, joka antaa skripteille oikeuden olla käyttäjän oikeuksin oli suEXEC, ja sitä en saanut toimimaan.
 
+"wget --save-headers http://localhost/test.php"
+"wget --save-headers --no-check-certificate http://localhost/cgi-bin/test.cgi"
 
-CGI.skriptin otsakkeiden haku onnistui ainoastaan --no-check-certificate vivulla, koska wget ei muuten saanut yhteyttä, koska ei onnistunut verifioimaan sertifikaattia
+CGI.skriptin otsakkeiden haku onnistui ainoastaan --no-check-certificate vivulla, koska wget ei muuten saanut yhteyttä, koska ei onnistunut verifioimaan sertifikaatti
