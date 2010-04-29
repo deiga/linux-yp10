@@ -24,13 +24,17 @@ Palvelimelle asennetaan CGI-skripti, joka toimii käyttäjän oikeuksin WWW-serv
 ### Oppimispäiväkirja
 #
 
-IP: 103.178.59.113
 1. Apachen asennus
 	Apachen asennus sujui ongelmitta
 	"sudo yum insall http php mod_perl mod_python mod_ssl"
 
 2. SSL/TLS tuen käyttöönotto Apachessa
+
 3. Sertifikaatin generointi. Sertifikaatti allekirjoitetaan Linux-ylläpito kurssin virallisella CA:lla osoitteessa http://db.cs.helsinki.fi/~jjaakkol/linux-yp/
+	Sertifikaation oikean muodon keksiminen vaati aluksi hieman aikaa, koska oletin, että allekirjoittaja tahtoisn jonkun tietyn muodon.
+
+	"openssl req -newkey rsa:1024 -keyout csl2-crypted.pem -keyform PEM -out tempreq.csr"
+
 4. Apachen PHP-tuen asentaminen ja konfigurointi
 	Lisätty httpd.conf -tiedostoon seuraavaa:
 	"# Use for PHP 5.x:
@@ -68,6 +72,6 @@ IP: 103.178.59.113
 
 8. Asennetaan PHP-skripti, joka ottaa yhteyden tietokantaan ja tekee yksinkertaisen tietokantakyselyn (katso esimerkki) ja muotoilee kyselyn tuloksen HTML-muotoon.
 	Kopioitu esimerkki-skripti sivuilta ja muutettu parametrit oikeiksi omalle palvelimelle.
-
+	pg_hba.conf tiedostossa piti kaikkien rivien autentikointi muuttaa trsutiksi, jotta yhteys tietokantaan oli mahdollista.
 
 9. Palvelimelle asennetaan CGI-skripti, joka toimii käyttäjän oikeuksin WWW-serverin oikeuksien sijasta. Asennettu CGI-skripti pitää myös olla suojattu SSL-kryptauksella!.
