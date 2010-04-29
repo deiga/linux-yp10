@@ -29,11 +29,12 @@ Palvelimelle asennetaan CGI-skripti, joka toimii käyttäjän oikeuksin WWW-serv
 	"sudo yum insall http php mod_perl mod_python mod_ssl"
 
 2. SSL/TLS tuen käyttöönotto Apachessa
-	Ei tarvinnut tehdä mitään.
+	Ei tarvinnut tehdä mitään, moduulin asentaminen sääti asiat kohdalleen.
+
 3. Sertifikaatin generointi. Sertifikaatti allekirjoitetaan Linux-ylläpito kurssin virallisella CA:lla osoitteessa http://db.cs.helsinki.fi/~jjaakkol/linux-yp/
 	Sertifikaation oikean muodon keksiminen vaati aluksi hieman aikaa, koska oletin, että allekirjoittaja tahtoisn jonkun tietyn muodon.
-
 	"openssl req -newkey rsa:1024 -keyout csl2-crypted.pem -keyform PEM -out tempreq.csr"
+	Kun vaihdettu sertifikaatin palvelin-nimi niin tulee ongelmakis ettei wget osaa verifioida
 
 4. Apachen PHP-tuen asentaminen ja konfigurointi
 	Lisätty httpd.conf -tiedostoon seuraavaa:
@@ -77,3 +78,7 @@ Palvelimelle asennetaan CGI-skripti, joka toimii käyttäjän oikeuksin WWW-serv
 9. Palvelimelle asennetaan CGI-skripti, joka toimii käyttäjän oikeuksin WWW-serverin oikeuksien sijasta. Asennettu CGI-skripti pitää myös olla suojattu SSL-kryptauksella!.
 	Asennettu esimerkki skripti cgi-bin kansioon
 	Määritelty Directory-asetus "SSLRequireSSL", jotta cgi-skriptejä ei pääse ajamaan ilman SSL/TLS yhteyttä.
+	Ainut keino minkä löysin, joka antaa skripteille oikeuden olla käyttäjän oikeuksin oli suEXEC, ja sitä en saanut toimimaan.
+
+
+CGI.skriptin otsakkeiden haku onnistui ainoastaan --no-check-certificate vivulla, koska wget ei muuten saanut yhteyttä, koska ei onnistunut verifioimaan sertifikaattia

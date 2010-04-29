@@ -1,0 +1,11 @@
+NameVirtualHost *:80
+ServerName lyp.local
+
+<VirtualHost *:80>
+        DocumentRoot "/var/www/html"
+</VirtualHost>
+
+<VirtualHost _default_:443>
+        SSLProtocol all
+        DocumentRoot "/var/www/ssl"
+</VirtualHost>

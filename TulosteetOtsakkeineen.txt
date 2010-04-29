@@ -1,0 +1,121 @@
+## PHP ##
+
+HTTP/1.1 200 OK
+Date: Thu, 29 Apr 2010 16:26:48 GMT
+Server: Apache/2.2.3 (CentOS)
+X-Powered-By: PHP/5.1.6
+Content-Length: 237
+Connection: close
+Content-Type: text/html; charset=UTF-8
+
+<html>
+<title>Movie list</title>
+<body>
+<h1>Selected list of great movies</h1>
+<table>
+<tr><td>Holy Grail</td><td>1975</td></tr><tr><td>Life of Brian</td><td>1979</td></tr><tr><td>The Meaning of Life</td><td>1983</td></tr></pre>
+</html>
+
+
+## CGI ##
+
+HTTP/1.1 200 OK
+Date: Thu, 29 Apr 2010 16:39:26 GMT
+Server: Apache/2.2.3 (CentOS)
+Connection: close
+Content-Type: text/plain; charset=UTF-8
+
+-----------------------------
+this CGI process run by : uid=48(apache) gid=48(apache) groups=48(apache) context=user_u:system_r:httpd_sys_script_t
+-----------------------------
+Thu Apr 29 19:39:26 EEST 2010
+-----------------------------
+core file size          (blocks, -c) 0
+data seg size           (kbytes, -d) unlimited
+scheduling priority             (-e) 0
+file size               (blocks, -f) unlimited
+pending signals                 (-i) 16384
+max locked memory       (kbytes, -l) 32
+max memory size         (kbytes, -m) unlimited
+open files                      (-n) 1024
+pipe size            (512 bytes, -p) 8
+POSIX message queues     (bytes, -q) 819200
+real-time priority              (-r) 0
+stack size              (kbytes, -s) 10240
+cpu time               (seconds, -t) unlimited
+max user processes              (-u) unlimited
+virtual memory          (kbytes, -v) unlimited
+file locks                      (-x) unlimited
+core file size          (blocks, -c) unlimited
+data seg size           (kbytes, -d) unlimited
+scheduling priority             (-e) 0
+file size               (blocks, -f) unlimited
+pending signals                 (-i) 16384
+max locked memory       (kbytes, -l) 32
+max memory size         (kbytes, -m) unlimited
+open files                      (-n) 1024
+pipe size            (512 bytes, -p) 8
+POSIX message queues     (bytes, -q) 819200
+real-time priority              (-r) 0
+stack size              (kbytes, -s) unlimited
+cpu time               (seconds, -t) unlimited
+max user processes              (-u) unlimited
+virtual memory          (kbytes, -v) unlimited
+file locks                      (-x) unlimited
+-----------------------------
+SSL_SERVER_A_KEY=rsaEncryption
+SSL_CLIENT_VERIFY=NONE
+SSL_SECURE_RENEG=true
+SSL_SESSION_ID=9B41126B58FED9A86ECA7B83D8CF1D12C73A2F584AFFDCE5EC22B0BE6AF09C55
+SERVER_SIGNATURE=<address>Apache/2.2.3 (CentOS) Server at localhost Port 443</address>
+
+SSL_SERVER_I_DN_Email=jjaakkol@cs.helsinki.fi
+SSL_VERSION_LIBRARY=OpenSSL/0.9.8e-fips-rhel5
+HTTP_USER_AGENT=Wget/1.11.4 Red Hat modified
+SERVER_PORT=443
+HTTP_HOST=localhost
+SSL_CIPHER_ALGKEYSIZE=256
+SSL_SERVER_I_DN=/C=fi/O=University of Helsinki/OU=Linux-kurssi/L=Helsinki/CN=Linux-kurssin luotetut sertifikaatit/emailAddress=jjaakkol@cs.helsinki.fi
+SSL_SERVER_S_DN_O=University of Helsinki
+DOCUMENT_ROOT=/var/www/html
+SCRIPT_FILENAME=/var/www/cgi-bin/test.cgi
+HTTPS=on
+REQUEST_URI=/cgi-bin/test.cgi
+SSL_SERVER_I_DN_OU=Linux-kurssi
+SCRIPT_NAME=/cgi-bin/test.cgi
+SSL_SERVER_S_DN_OU=CS
+SSL_SERVER_I_DN_C=fi
+SSL_SERVER_S_DN=/CN=localhost/C=FI/O=University of Helsinki/OU=CS
+SSL_VERSION_INTERFACE=mod_ssl/2.2.3
+SSL_SERVER_I_DN_L=Helsinki
+SSL_CIPHER_EXPORT=false
+HTTP_CONNECTION=Keep-Alive
+SSL_SERVER_I_DN_O=University of Helsinki
+SSL_COMPRESS_METHOD=NULL
+REMOTE_PORT=33609
+PATH=/usr/bin:/bin
+SSL_SERVER_S_DN_C=FI
+SSL_CIPHER=DHE-RSA-AES256-SHA
+PWD=/var/www/cgi-bin
+SERVER_ADMIN=root@localhost
+SSL_SERVER_A_SIG=sha1WithRSAEncryption
+SSL_SERVER_M_SERIAL=013E
+SSL_PROTOCOL=TLSv1
+SSL_SERVER_S_DN_CN=localhost
+HTTP_ACCEPT=*/*
+REMOTE_ADDR=127.0.0.1
+SHLVL=1
+SERVER_NAME=localhost
+SSL_SERVER_M_VERSION=3
+SERVER_SOFTWARE=Apache/2.2.3 (CentOS)
+QUERY_STRING=
+SERVER_ADDR=127.0.0.1
+SSL_SERVER_V_END=Apr 28 16:30:18 2015 GMT
+GATEWAY_INTERFACE=CGI/1.1
+SERVER_PROTOCOL=HTTP/1.0
+SSL_SERVER_I_DN_CN=Linux-kurssin luotetut sertifikaatit
+REQUEST_METHOD=GET
+SSL_SERVER_V_START=Apr 29 16:30:18 2010 GMT
+SSL_CIPHER_USEKEYSIZE=256
+_=/usr/bin/env
+-----------------------------
