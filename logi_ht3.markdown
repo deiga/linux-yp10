@@ -8,7 +8,7 @@ OpenVPN-yhteys suojataan kotikutoisella varmenteella ja omalla salausavaimella. 
 
 Onnistunut ratkaisu toteutetaan siten, että kaikki vaiheet ovat automatisoituja. Tämä tarkoittaa sitä, että työasema käynnistyessään nostaa paikallisen verkkoliitännän pystyyn ja vasta sitten yrittää muodostaa OpenVPN-tunnelin. Tunnelin muodostumisen jälkeen OpenVPN käynnistää oman skriptin, joka suorittaa muut vaiheet. Ideana on kokeilla ensin toimenpiteet käsin ja sitten automatisoida ne. Automatisoinnin lopputuloksena järjestelmä on voinut kirjoittaa salasanan esim. tiedostoon /tmp/password.txt.
 
-Palautukseen tulee liitää mainittu salasana, OpenVPN:n konfigurointitiedosto sekä automatisointiin tarvittavat shell-skriptit. Deadline on maanantaina 17.5. klo 16:00. Palauttamisessa käytetään tuttua härveliä osoitteessa [http://db.cs.helsinki.fi/~jjaakkol/linux-return/](http://db.cs.helsinki.fi/~jjaakkol/linux-return/ "LYP -palautkset").
+Palautukseen tulee liitää mainittu salasana, OpenVPN:n konfigurointitiedosto sekä automatisointiin tarvittavat shell-skriptit. Deadline on maanantaina 17.5. klo 16:00. Palauttamisessa käytetään tuttua härveliä osoitteessa [http://db.cs.helsinki.fi/~jjaakkol/linux-return/](http://db.cs.helsinki.fi/~jjaakkol/linux-return/ "LYP -palautukset").
 
 Arvostelussa huomioidaan
 
@@ -26,4 +26,26 @@ Vinkkejä
 
 
 ## Oppimispäiväkirja ##
+
+
+Harjoitustyön aloittaminen tuntuu vaikealta. Kun luennoille ei päässyt mukaan,
+niin "luentokalvojen" ymmärtäminen vaikeaa ja työlästä.
+
+Luentokalvojen sijaan aloitin lukemalla OpenVPN:än man sivuja. Kasasin sieltä komennon millä saan vpn yhteyden päälle.
+
+Sitten loin uuden sertifikaatin avaimineen:
+
+*	`openssl req -nodes -new -keyout mycert.key -out mycert.csr`
+
+Allekirjoitutin avaimen verkkopalvelussa.  
+Sitten testasin toimiiko keräämäni komento:
+
+* `sudo openvpn --remote openvpn.cs.helsinki.fi --tls-client --ca /home/deiga/linuxyp-CA.pem --cert /home/deiga/verkkolyp.pem --key /home/deiga/verkkolyp_key.pem --verb 9 --reneg-sec 60 --dev tun`
+
+Tuossa on lopullinen komento, jouduin muutaman kerran testaamaan komentoa ja korjaamaan ohjelman antamat virheet.
+
+
+
+### Notes ###
+
 
