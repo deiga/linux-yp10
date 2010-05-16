@@ -84,3 +84,7 @@ Palvelimelle asennetaan CGI-skripti, joka toimii käyttäjän oikeuksin WWW-serv
 "wget --save-headers --no-check-certificate http://localhost/cgi-bin/test.cgi"
 
 CGI.skriptin otsakkeiden haku onnistui ainoastaan --no-check-certificate vivulla, koska wget ei muuten saanut yhteyttä, koska ei onnistunut verifioimaan sertifikaatti
+
+####
+
+Sovittiin, että saan palauttaa 29.04.2010 klo 16 mennessä, koska rampautin käteni. Pahoittelen että venähti siitäkin.
