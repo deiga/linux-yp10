@@ -101,6 +101,8 @@ Lopulliset skriptit ja käskyt löytyvät tämän tiedoston lopusta.
 
 ### Notes ###
 
+**Työn kesto: 15h**
+
 **Automaation vikasietoisuus:**
 
 *	Automaatio lopettaa toiminnan, jos jostain syystä ssh yhteys epäonnistuu
